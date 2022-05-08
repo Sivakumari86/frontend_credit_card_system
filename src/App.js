@@ -11,7 +11,7 @@ const urlAdd = "/credit/addCard";
 
 function App() {
   const [card, setCard] = useState({
-          name: '', cardNumber: '', limit: 0
+          name: '', cardNumber: '', limit: 0,balance:0
   });
   const [validationErrors, setValidationErrors] = useState({
     name: false, cardNumber: false, limit: false
@@ -76,7 +76,7 @@ function App() {
         success: function(r){
           console.log("function called success")
           setCardList( [...cardList, card] );
-          setCard({name: '', cardNumber: '', limit: ''});
+          setCard({name: '', cardNumber: '', limit: '',balance:''});
         },
         error: function(xhr, status, error){
           console.log('status code is ..',xhr.status);
@@ -85,7 +85,7 @@ function App() {
           } 
           if (xhr.status === 201) {
             setCardList( [...cardList, card] );
-          setCard({name: '', cardNumber: '', limit: ''});
+          setCard({name: '', cardNumber: '', limit: '',balance:''});
           } 
         }
       });
